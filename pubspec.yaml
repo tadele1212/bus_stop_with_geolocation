@@ -1,0 +1,23 @@
+name: tkl_bus_tracking
+description: A real-time bus tracking application
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  mysql1: ^0.20.0
+  geolocator: ^13.0.2
+  shared_preferences: ^2.2.2
+  provider: ^6.0.0
+  cupertino_icons: ^1.0.2
+  permission_handler: ^11.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
