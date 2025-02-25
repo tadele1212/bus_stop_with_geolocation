@@ -51,15 +51,10 @@ class LocationService {
 
   Stream<Position> getLocationStream() {
     return Geolocator.getPositionStream(
-      locationSettings: AndroidSettings(
-        accuracy: LocationAccuracy.bestForNavigation, // Highest accuracy
+      locationSettings: const LocationSettings(
+        accuracy: LocationAccuracy.high,
         distanceFilter: 0,
-        intervalDuration: const Duration(seconds: 5),
-        foregroundNotificationConfig: const ForegroundNotificationConfig(
-          notificationText: "Tracking bus location",
-          notificationTitle: "Bus Tracking Active",
-          enableWakeLock: true,
-        ),
+        timeLimit: const Duration(seconds: 10),
       ),
     );
   }

@@ -28,16 +28,7 @@ class _RealtimeTrackingScreenState extends State<RealtimeTrackingScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Service ${widget.serviceNo}'),
-          actions: [
-            Consumer<BusServiceProvider>(
-              builder: (context, provider, child) {
-                return IconButton(
-                  icon: const Icon(Icons.refresh),
-                  onPressed: provider.isLoading ? null : provider.refresh,
-                );
-              },
-            ),
-          ],
+          automaticallyImplyLeading: false,
         ),
         body: Consumer2<LocationProvider, BusServiceProvider>(
           builder: (context, locationProvider, busProvider, child) {
@@ -97,8 +88,21 @@ class _RealtimeTrackingScreenState extends State<RealtimeTrackingScreen> {
                     },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size.fromHeight(50),
+                      backgroundColor: AppColors.primary,
+                      foregroundColor: Colors.white,
+                      elevation: 8,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
                     ),
-                    child: const Text('View All Stops'),
+                    child: const Text(
+                      'View All Stops',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ],
